@@ -1,0 +1,36 @@
+<div class="wrapper">
+  <div
+    [class.toggle-icon]="isToggle"
+    (click)="toggle()"
+    style="
+      position: absolute;
+      z-index: 99999;
+      left: 292px;
+      top: 19px;
+      cursor: pointer;
+    "
+  >
+    <span *ngIf="!isToggle" class="material-icons"> cancel </span>
+    <span *ngIf="isToggle" class="material-icons"> fullscreen </span>
+  </div>
+  <div
+    [class.toggle-sidebar]="isToggle"
+    class="sidebar"
+    data-color="danger"
+    data-background-color="white"
+    data-image="./assets/img/sidebar-1.jpg"
+  >
+    <app-sidebar></app-sidebar>
+    <div
+      class="sidebar-background"
+      style="background-image: url(./assets/img/sidebar-4.jpg)"
+    ></div>
+  </div>
+  <div class="main-panel" [class.toggle-main]="isToggle">
+    <app-navbar></app-navbar>
+    <router-outlet></router-outlet>
+    <div *ngIf="isMaps('maps')">
+      <app-footer></app-footer>
+    </div>
+  </div>
+</div>

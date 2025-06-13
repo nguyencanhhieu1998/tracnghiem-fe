@@ -1,0 +1,55 @@
+<div class="main-content">
+    <div class="container-fluid">
+      <div class="title">Tạo Môn Thi</div>
+      <button mat-raised-button color="primary" class="mb-2" (click)="CreateSubject()">Tạo Môn Thi</button>
+      <div class="action">
+        <div class="action-1">
+          <mat-form-field class="example-full-width">
+            <mat-label>Tìm Kiếm</mat-label>
+            <input [(ngModel)]="searchSubject" name="searchSubject"  (ngModelChange)="modelChangedSearch($event)" matInput placeholder="Nhập Kết Quả" />
+          </mat-form-field>
+        </div>
+        <div class="action-2">
+          <div class="action-2-1">
+          </div>
+          <div class="action-2-2">
+
+          </div>
+        </div>
+      </div>
+      <div class="main-history">
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead class="">
+              <th>ID</th>
+              <th>Môn Thi</th>
+              <th>Ngày Tạo</th>
+              <th>Hành Động</th>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of items">
+                <td>{{ item.id }}</td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.createdAt | date: "MM-dd-yyyy" }}</td>
+                <td class="table-action">
+                  <span
+                  (click)="editAdmin(item)"
+                  class="material-icons icon-delete"
+                >
+                mode_edit
+                </span>
+                  <span
+                    (click)="deleteSubject(item.id)"
+                    class="material-icons icon-delete"
+                  >
+                    delete
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  
